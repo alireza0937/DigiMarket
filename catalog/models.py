@@ -7,7 +7,7 @@ class Category(models.Model):
     
     name = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
-    parent = models.ForeignKey("self", null=True, blank=True, related_name="children")
+    parent = models.ForeignKey("self", null=True, blank=True, related_name="children", on_delete=models.PROTECT)
     
     
     def __str__(self):
