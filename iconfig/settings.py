@@ -1,5 +1,6 @@
 from pathlib import Path
 from decouple import config
+from datetime import timedelta
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -94,6 +95,14 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
+
+
+SIMPLE_JWT = {
+    
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=10),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+
+    }
 
 LANGUAGE_CODE = "en-us"
 
